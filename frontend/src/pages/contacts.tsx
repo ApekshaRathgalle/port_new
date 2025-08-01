@@ -53,7 +53,9 @@ const Contacts: React.FC = () => {
       color: 'white',
       fontFamily: "'Inter', 'Poppins', sans-serif",
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Animated Background Elements */}
       <div style={{
@@ -92,7 +94,7 @@ const Contacts: React.FC = () => {
       }} />
 
       <main style={{
-        padding: '2rem',
+        padding: '8rem 2rem 2rem 2rem',
         position: 'relative',
         zIndex: 1
       }}>

@@ -1,6 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Globe } from 'lucide-react';
+import salomain from '../assets/salomain.jpg';
+import salo1 from '../assets/salo1.jpg';
+import salo2 from '../assets/salo2.jpg';
+import salo3 from '../assets/salo3.jpg';
+import salo5 from '../assets/salo5.jpg';
+import salo6 from '../assets/salo6.jpg';
+import salo7 from '../assets/salo7.jpg';
+import salo8 from '../assets/salo8.jpg';
+import salo9 from '../assets/salo9.jpg';
+import salo34 from '../assets/salo34.jpg';
 
 interface ProjectImage {
   url: string;
@@ -12,73 +22,126 @@ const Salogame: React.FC = () => {
 
   // You can replace these with actual project details
   const project = {
-    title: "Game Management System",
-    description: "A full-stack web application for managing game data, player profiles, and match statistics. Features include user authentication, real-time updates, and comprehensive dashboard for game analytics.",
+    title: "Salo Game Management System",
+    description: "A comprehensive full-stack web application for managing game data, player profiles, and match statistics. Features include user authentication, real-time updates, comprehensive dashboard for game analytics, and an intuitive interface for game management.",
     technologies: ["React", "Node.js", "MongoDB", "Express", "TypeScript", "Socket.io", "Redux", "Material-UI"],
-    liveDemo: "https://game-management-system.vercel.app",
-    github: "https://github.com/yourusername/game-management",
+    liveDemo: "https://salo-game-management.vercel.app",
+    github: "https://github.com/yourusername/salo-game-management",
     images: [
       {
-        url: "/project1-dashboard.png",
-        caption: "Main Dashboard View"
+        url: salomain,
+        caption: "Main Dashboard - Salo Game Overview"
       },
       {
-        url: "/project1-profile.png",
-        caption: "Player Profile Page"
+        url: salo1,
+        caption: "Game Registration Interface"
       },
-      // Add more images as needed
+      {
+        url: salo2,
+        caption: "Player Profile Management"
+      },
+      {
+        url: salo3,
+        caption: "Match Statistics Display"
+      },
+      {
+        url: salo5,
+        caption: "Game Analytics Dashboard"
+      },
+      {
+        url: salo6,
+        caption: "Team Management Panel"
+      },
+      {
+        url: salo7,
+        caption: "Tournament Bracket View"
+      },
+      {
+        url: salo8,
+        caption: "Score Tracking Interface"
+      },
+      {
+        url: salo9,
+        caption: "Real-time Game Updates"
+      },
+      {
+        url: salo34,
+        caption: "Advanced Game Configuration"
+      }
     ]
   };
 
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#1a0033',
-      padding: '6rem 2rem',
-      color: 'white'
+      background: 'linear-gradient(135deg, #1a0033 0%, #2d1b69 25%, #1a0033 50%, #0d001a 75%, #1a0033 100%)',
+      padding: '8rem 2rem 4rem 2rem',
+      color: 'white',
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Back Button */}
-      <button
-        onClick={() => navigate('/webdev')}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.75rem 1.5rem',
-          backgroundColor: 'rgba(162, 89, 255, 0.1)',
-          border: '1px solid rgba(162, 89, 255, 0.3)',
-          borderRadius: '50px',
-          color: 'white',
-          cursor: 'pointer',
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto'
+      }}>
+        <button
+          onClick={() => navigate('/webdev')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.75rem 1.5rem',
+            backgroundColor: 'rgba(162, 89, 255, 0.1)',
+            border: '1px solid rgba(162, 89, 255, 0.3)',
+            borderRadius: '50px',
+            color: 'white',
+            cursor: 'pointer',
+            marginBottom: '2rem',
+            transition: 'all 0.3s ease',
+            backdropFilter: 'blur(10px)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(162, 89, 255, 0.2)';
+            e.currentTarget.style.transform = 'translateX(-5px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(162, 89, 255, 0.1)';
+            e.currentTarget.style.transform = 'translateX(0)';
+          }}
+        >
+          <ArrowLeft size={20} />
+          Back to Projects
+        </button>
+
+        {/* Project Title */}
+        <h1 style={{
+          fontSize: '3.5rem',
+          background: 'linear-gradient(90deg, #a259ff, #ff00ff, #6c5ce7)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
           marginBottom: '2rem',
-          transition: 'all 0.3s ease'
-        }}
-      >
-        <ArrowLeft size={20} />
-        Back to Projects
-      </button>
+          textAlign: 'center',
+          fontWeight: 'bold'
+        }}>
+          {project.title}
+        </h1>
 
-      {/* Project Title */}
-      <h1 style={{
-        fontSize: '3rem',
-        background: 'linear-gradient(90deg, #a259ff, #ff00ff)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        marginBottom: '2rem'
-      }}>
-        {project.title}
-      </h1>
-
-      {/* Project Description */}
-      <p style={{
-        fontSize: '1.2rem',
-        color: 'rgba(255, 255, 255, 0.8)',
-        maxWidth: '800px',
-        marginBottom: '3rem',
-        lineHeight: '1.6'
-      }}>
-        {project.description}
-      </p>
+        {/* Project Description */}
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '3rem'
+        }}>
+          <p style={{
+            fontSize: '1.2rem',
+            color: 'rgba(255, 255, 255, 0.8)',
+            maxWidth: '900px',
+            margin: '0 auto',
+            lineHeight: '1.6'
+          }}>
+            {project.description}
+          </p>
+        </div>
 
       {/* Technologies */}
       <div style={{ marginBottom: '3rem' }}>
@@ -161,48 +224,102 @@ const Salogame: React.FC = () => {
       {/* Project Images */}
       <div>
         <h2 style={{
-          fontSize: '1.5rem',
+          fontSize: '1.8rem',
           color: '#ff00ff',
-          marginBottom: '1.5rem'
+          marginBottom: '1.5rem',
+          textAlign: 'center'
         }}>
           Project Gallery
         </h2>
+        <p style={{
+          fontSize: '1rem',
+          color: 'rgba(255, 255, 255, 0.7)',
+          textAlign: 'center',
+          marginBottom: '2rem'
+        }}>
+          Explore the different features and interfaces of the Salo Game Management System
+        </p>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+          gap: '2rem',
+          marginBottom: '2rem'
         }}>
           {project.images.map((image, index) => (
             <div
               key={index}
               style={{
-                borderRadius: '15px',
+                borderRadius: '20px',
                 overflow: 'hidden',
-                border: '1px solid rgba(162, 89, 255, 0.3)',
-                backgroundColor: 'rgba(162, 89, 255, 0.1)'
+                border: '2px solid rgba(162, 89, 255, 0.3)',
+                backgroundColor: 'rgba(162, 89, 255, 0.05)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(162, 89, 255, 0.4)';
+                e.currentTarget.style.borderColor = 'rgba(162, 89, 255, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+                e.currentTarget.style.borderColor = 'rgba(162, 89, 255, 0.3)';
               }}
             >
-              <img
-                src={image.url}
-                alt={image.caption}
-                style={{
-                  width: '100%',
-                  height: '200px',
-                  objectFit: 'cover'
-                }}
-              />
-              <p style={{
-                padding: '1rem',
-                margin: 0,
-                fontSize: '0.9rem',
-                color: 'rgba(255, 255, 255, 0.8)',
-                textAlign: 'center'
+              <div style={{
+                position: 'relative',
+                overflow: 'hidden'
               }}>
-                {image.caption}
-              </p>
+                <img
+                  src={image.url}
+                  alt={image.caption}
+                  style={{
+                    width: '100%',
+                    height: '250px',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  top: '10px',
+                  right: '10px',
+                  background: 'rgba(162, 89, 255, 0.8)',
+                  color: 'white',
+                  padding: '0.3rem 0.8rem',
+                  borderRadius: '15px',
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold'
+                }}>
+                  #{index + 1}
+                </div>
+              </div>
+              <div style={{
+                padding: '1.5rem'
+              }}>
+                <p style={{
+                  margin: 0,
+                  fontSize: '1rem',
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  textAlign: 'center',
+                  fontWeight: '500',
+                  lineHeight: '1.4'
+                }}>
+                  {image.caption}
+                </p>
+              </div>
             </div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

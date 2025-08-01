@@ -85,9 +85,11 @@ const About: React.FC = () => {
     <div style={{ 
       background: 'linear-gradient(135deg, #1a0033 0%, #0d001a 100%)',
       minHeight: '100vh',
-      padding: '2rem',
+      padding: '6rem 2rem 2rem 2rem',
       color: 'white',
-      fontFamily: "'Poppins', sans-serif"
+      fontFamily: "'Poppins', sans-serif",
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Hero Section */}
       <motion.section
