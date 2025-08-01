@@ -3,8 +3,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import project1 from '../assets/project1.png';
 import project4 from '../assets/project4.png';
-import melody1 from '../assets/melody1.jpeg';
-import automated from '../assets/automated.jpeg';
+import melody1 from '../assets/melody1.jpeg.jpg';
+import automated from '../assets/automated.jpeg.jpg';
 
 interface Project {
   id: number;
@@ -64,6 +64,7 @@ const WebDev: React.FC = () => {
       setIsAutoPlaying(true);
     }
   }, [hoveredCard]);
+  
   const projects: Project[] = [
     {
       id: 1,
@@ -108,8 +109,7 @@ const WebDev: React.FC = () => {
       image: characterImages[4],
       technologies: ["html", "css", "php", "javascript"],
       link: "https://github.com/yourusername/project4"
-    },
-   
+    }
   ];
 
   const totalPages = Math.ceil(projects.length / projectsPerPage);
@@ -162,6 +162,26 @@ const WebDev: React.FC = () => {
       padding: '6rem 2rem 4rem 2rem',
       color: 'white'
     }}>
+      <style>{`
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.6;
+          }
+        }
+      `}</style>
+      
       <div
         style={{
           opacity: 1,
@@ -192,11 +212,11 @@ const WebDev: React.FC = () => {
       <div
         style={{
           display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '2rem',
-    maxWidth: '1400px',
-    margin: '0 auto 4rem',
-    justifyContent: 'space-between'
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '2rem',
+          maxWidth: '1400px',
+          margin: '0 auto 4rem',
+          justifyContent: 'space-between'
         }}
       >
         {currentProjects.map((project) => (
@@ -206,29 +226,29 @@ const WebDev: React.FC = () => {
             onMouseLeave={() => setHoveredCard(null)}
             style={{
               background: '#ddd0d0ff',
-        borderRadius: '20px',
-        padding: '2px',
-        position: 'relative',
-        overflow: 'hidden',
-        cursor: 'pointer',
-        transition: 'all 0.4s ease',
-        transform: hoveredCard === project.id ? 'scale(1.02)' : 'scale(1)',
-        height: '900px',
-        width: '450px',
-        minWidth: '280px',
-        maxWidth: '100%',
-        marginLeft: project.id === 1 ? '0' : project.id === 3 ? 'auto' : 'auto',
-        marginRight: project.id === 3 ? '0' : 'auto',
-        boxShadow: hoveredCard === project.id 
-          ? 0 0 30px ${project.glowColor}, 0 0 60px ${project.lightingColor} 
-          : 0 0 15px ${project.lightingColor}
+              borderRadius: '20px',
+              padding: '2px',
+              position: 'relative',
+              overflow: 'hidden',
+              cursor: 'pointer',
+              transition: 'all 0.4s ease',
+              transform: hoveredCard === project.id ? 'scale(1.02)' : 'scale(1)',
+              height: '900px',
+              width: '450px',
+              minWidth: '280px',
+              maxWidth: '100%',
+              marginLeft: project.id === 1 ? '0' : project.id === 3 ? 'auto' : 'auto',
+              marginRight: project.id === 3 ? '0' : 'auto',
+              boxShadow: hoveredCard === project.id 
+                ? `0 0 30px ${project.glowColor}, 0 0 60px ${project.lightingColor}` 
+                : `0 0 15px ${project.lightingColor}`
             }}
           >
             {/* Purple border frame */}
             <div style={{
               position: 'absolute',
               inset: '0',
-              background: linear-gradient(135deg, ${project.lightingColor}, rgba(162, 89, 255, 0.4), ${project.lightingColor}),
+              background: `linear-gradient(135deg, ${project.lightingColor}, rgba(162, 89, 255, 0.4), ${project.lightingColor})`,
               borderRadius: '20px',
               padding: '2px',
               zIndex: 0
@@ -259,14 +279,14 @@ const WebDev: React.FC = () => {
                 borderRadius: '15px',
                 overflow: 'hidden',
                 position: 'relative',
-                boxShadow: 0 4px 20px ${project.lightingColor}
+                boxShadow: `0 4px 20px ${project.lightingColor}`
               }}>
                 {/* Render slideshow for first project, single image for others */}
                 {project.id === 1 && Array.isArray(project.image) ? (
                   <>
                     <img 
                       src={project.image[currentImageIndex]} 
-                      alt={${project.title} - Image ${currentImageIndex + 1}}
+                      alt={`${project.title} - Image ${currentImageIndex + 1}`}
                       style={{
                         width: '100%',
                         height: '100%',
@@ -286,7 +306,7 @@ const WebDev: React.FC = () => {
                         top: '50%',
                         transform: 'translateY(-50%)',
                         background: 'rgba(0, 0, 0, 0.7)',
-                        border: 1px solid ${project.lightingColor},
+                        border: `1px solid ${project.lightingColor}`,
                         borderRadius: '50%',
                         width: '40px',
                         height: '40px',
@@ -311,7 +331,7 @@ const WebDev: React.FC = () => {
                         top: '50%',
                         transform: 'translateY(-50%)',
                         background: 'rgba(0, 0, 0, 0.7)',
-                        border: 1px solid ${project.lightingColor},
+                        border: `1px solid ${project.lightingColor}`,
                         borderRadius: '50%',
                         width: '40px',
                         height: '40px',
@@ -352,7 +372,7 @@ const WebDev: React.FC = () => {
                             backgroundColor: index === currentImageIndex ? project.glowColor : 'rgba(255, 255, 255, 0.5)',
                             cursor: 'pointer',
                             transition: 'all 0.3s ease',
-                            boxShadow: index === currentImageIndex ? 0 0 8px ${project.lightingColor} : 'none'
+                            boxShadow: index === currentImageIndex ? `0 0 8px ${project.lightingColor}` : 'none'
                           }}
                         />
                       ))}
@@ -409,7 +429,7 @@ const WebDev: React.FC = () => {
                   <div style={{
                     position: 'absolute',
                     inset: '0',
-                    background: radial-gradient(circle at center, transparent 30%, ${project.lightingColor}),
+                    background: `radial-gradient(circle at center, transparent 30%, ${project.lightingColor})`,
                     borderRadius: '15px',
                     opacity: 0.3,
                     animation: 'pulse 2s ease-in-out infinite'
@@ -432,7 +452,7 @@ const WebDev: React.FC = () => {
                     marginBottom: '0.5rem',
                     color: 'white',
                     fontWeight: 600,
-                    textShadow: hoveredCard === project.id ? 0 0 10px ${project.lightingColor} : 'none'
+                    textShadow: hoveredCard === project.id ? `0 0 10px ${project.lightingColor}` : 'none'
                   }}>
                     {project.title}
                   </h3>
@@ -464,7 +484,7 @@ const WebDev: React.FC = () => {
                           borderRadius: '12px',
                           fontSize: '0.8rem',
                           border: hoveredCard === project.id 
-                            ? 1px solid ${project.glowColor} 
+                            ? `1px solid ${project.glowColor}` 
                             : '1px solid rgba(162, 89, 255, 0.2)',
                           transition: 'all 0.3s ease',
                           color: 'white'
@@ -477,41 +497,41 @@ const WebDev: React.FC = () => {
                 </div>
 
                 <div
-  onClick={() => {
-    switch(project.id) {
-      case 1:
-        navigate('/salogame');
-        break;
-      case 2:
-        navigate('/socialmedia');
-        break;
-      case 3:
-        navigate('/musicplatform');
-        break;
-      case 4:
-        navigate('/parkingsystem');
-        break;
-    }
-  }}
-  style={{
-    textAlign: 'center',
-    opacity: hoveredCard === project.id ? 1 : 0,
-    transition: 'opacity 0.3s ease',
-    padding: '0.5rem',
-    borderTop: '1px solid rgba(162, 89, 255, 0.2)',
-    cursor: 'pointer'
-  }}
->
-  <span style={{
-    fontSize: '0.9rem',
-    color: 'white',
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '0.5rem'
-  }}>
-    View Project →
-  </span>
-</div>
+                  onClick={() => {
+                    switch(project.id) {
+                      case 1:
+                        navigate('/salogame');
+                        break;
+                      case 2:
+                        navigate('/socialmedia');
+                        break;
+                      case 3:
+                        navigate('/musicplatform');
+                        break;
+                      case 4:
+                        navigate('/parkingsystem');
+                        break;
+                    }
+                  }}
+                  style={{
+                    textAlign: 'center',
+                    opacity: hoveredCard === project.id ? 1 : 0,
+                    transition: 'opacity 0.3s ease',
+                    padding: '0.5rem',
+                    borderTop: '1px solid rgba(162, 89, 255, 0.2)',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <span style={{
+                    fontSize: '0.9rem',
+                    color: 'white',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    View Project →
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -520,7 +540,7 @@ const WebDev: React.FC = () => {
               <div style={{
                 position: 'absolute',
                 inset: '-4px',
-                background: conic-gradient(from 0deg, transparent, ${project.glowColor}, transparent, ${project.glowColor}, transparent),
+                background: `conic-gradient(from 0deg, transparent, ${project.glowColor}, transparent, ${project.glowColor}, transparent)`,
                 borderRadius: '24px',
                 zIndex: -1,
                 animation: 'rotate 3s linear infinite',
@@ -532,34 +552,12 @@ const WebDev: React.FC = () => {
             <div style={{
               position: 'absolute',
               inset: '-2px',
-              background: radial-gradient(600px circle at center, ${project.lightingColor}, transparent 70%),
+              background: `radial-gradient(600px circle at center, ${project.lightingColor}, transparent 70%)`,
               borderRadius: '22px',
               zIndex: -2,
               opacity: hoveredCard === project.id ? 0.6 : 0.3,
               transition: 'opacity 0.4s ease'
             }} />
-            
-            <style>
-              {`
-                @keyframes rotate {
-                  0% {
-                    transform: rotate(0deg);
-                  }
-                  100% {
-                    transform: rotate(360deg);
-                  }
-                }
-                
-                @keyframes pulse {
-                  0%, 100% {
-                    opacity: 0.3;
-                  }
-                  50% {
-                    opacity: 0.6;
-                  }
-                }
-              `}
-            </style>
           </div>
         ))}
       </div>

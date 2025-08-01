@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Globe, X } from 'lucide-react';
-import melody1 from '../assets/melody1.jpeg';
-import melody2 from '../assets/melody2.jpeg';
-import melody3 from '../assets/melody3.jpeg';
-import melody4 from '../assets/melody4.jpeg';
+import melody1 from '../assets/melody1.jpeg.jpg';
+import melody2 from '../assets/melody2.jpg';
+import melody3 from '../assets/melody3.jpg';
+import melody4 from '../assets/melody4.jpg';
 
 interface ProjectImage {
   url: string;
@@ -124,15 +124,15 @@ const MusicPlatform: React.FC = () => {
               key={tech}
               style={{
                 padding: '0.5rem 1rem',
-                backgroundColor: hoverStates[tech-${tech}] ? 'rgba(162, 89, 255, 0.3)' : 'rgba(162, 89, 255, 0.2)',
+                backgroundColor: hoverStates[`tech-${tech}`] ? 'rgba(162, 89, 255, 0.3)' : 'rgba(162, 89, 255, 0.2)',
                 borderRadius: '50px',
                 fontSize: '0.9rem',
                 border: '1px solid rgba(162, 89, 255, 0.3)',
                 transition: 'all 0.3s ease',
-                transform: hoverStates[tech-${tech}] ? 'scale(1.05)' : 'none'
+                transform: hoverStates[`tech-${tech}`] ? 'scale(1.05)' : 'none'
               }}
-              onMouseEnter={() => handleHover(tech-${tech}, true)}
-              onMouseLeave={() => handleHover(tech-${tech}, false)}
+              onMouseEnter={() => handleHover(`tech-${tech}`, true)}
+              onMouseLeave={() => handleHover(`tech-${tech}`, false)}
             >
               {tech}
             </span>
@@ -216,25 +216,25 @@ const MusicPlatform: React.FC = () => {
               style={{
                 borderRadius: '15px',
                 overflow: 'hidden',
-                border: hoverStates[image-${index}] ? '2px solid #a259ff' : '2px solid rgba(162, 89, 255, 0.5)',
+                border: hoverStates[`image-${index}`] ? '2px solid #a259ff' : '2px solid rgba(162, 89, 255, 0.5)',
                 backgroundColor: 'rgba(162, 89, 255, 0.1)',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: hoverStates[image-${index}] ? '0 8px 20px rgba(162, 89, 255, 0.3)' : '0 4px 8px rgba(0, 0, 0, 0.2)',
-                transform: hoverStates[image-${index}] ? 'translateY(-5px)' : 'none'
+                boxShadow: hoverStates[`image-${index}`] ? '0 8px 20px rgba(162, 89, 255, 0.3)' : '0 4px 8px rgba(0, 0, 0, 0.2)',
+                transform: hoverStates[`image-${index}`] ? 'translateY(-5px)' : 'none'
               }}
-              onMouseEnter={() => handleHover(image-${index}, true)}
-              onMouseLeave={() => handleHover(image-${index}, false)}
+              onMouseEnter={() => handleHover(`image-${index}`, true)}
+              onMouseLeave={() => handleHover(`image-${index}`, false)}
             >
               <img
                 src={image.url}
                 alt={image.caption}
                 style={{
-                  width: '400%',
+                  width: '100%',
                   height: '400px',
                   objectFit: 'cover',
                   transition: 'transform 0.3s ease',
-                  transform: hoverStates[image-${index}] ? 'scale(1.05)' : 'none'
+                  transform: hoverStates[`image-${index}`] ? 'scale(1.05)' : 'none'
                 }}
               />
               <p style={{

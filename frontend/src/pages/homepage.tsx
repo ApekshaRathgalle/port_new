@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backgroundVideo from '../assets/background.mp4';
-import profileImage from '../assets/image.png';
+import profileImage from '../assets/image.png.jpg';
 
 const Homepage: React.FC = () => {
   const navigate = useNavigate();
@@ -199,7 +199,7 @@ const Homepage: React.FC = () => {
             <div style={{
               width: '100%',
               height: '100%',
-              background: url(${profileImage}) center/cover,
+              background: `url(${profileImage}) center/cover`,
               borderRadius: '50%',
             }} />
           </div>

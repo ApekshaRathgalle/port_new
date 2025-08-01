@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import image from '../assets/image.png';
+import image from '../assets/image.png.jpg';
 import ApekshaRathgalle_Resume from '../assets/ApekshaRathgalle_Resume.pdf';
 
 // Custom hook for typewriter effect
@@ -352,11 +352,11 @@ const About: React.FC = () => {
                 transition={{ delay: index * 0.2, duration: 0.6 }}
                 whileHover={{ y: -10 }}
                 style={{
-                  background: linear-gradient(145deg, rgba(26,0,51,0.7), rgba(26,0,51,0.9)),
+                  background: `linear-gradient(145deg, rgba(26,0,51,0.7), rgba(26,0,51,0.9))`,
                   padding: '2rem',
                   borderRadius: '20px',
-                  boxShadow: 0 10px 30px -5px ${skill.color}40,
-                  border: 1px solid ${skill.color}30,
+                  boxShadow: `0 10px 30px -5px ${skill.color}40`,
+                  border: `1px solid ${skill.color}30`,
                   transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden'
@@ -368,7 +368,7 @@ const About: React.FC = () => {
                   right: '-50%',
                   width: '100%',
                   height: '200%',
-                  background: radial-gradient(circle, ${skill.color}20 0%, transparent 70%),
+                  background: `radial-gradient(circle, ${skill.color}20 0%, transparent 70%)`,
                   zIndex: 0
                 }} />
                 
@@ -478,7 +478,7 @@ const About: React.FC = () => {
                 width: '150px',
                 height: '150px',
                 borderRadius: '50%',
-                background: radial-gradient(circle, ${index === 0 ? '#ff6ec7' : '#6ec8ff'}20 0%, transparent 70%),
+                background: `radial-gradient(circle, ${index === 0 ? '#ff6ec7' : '#6ec8ff'}20 0%, transparent 70%)`,
                 zIndex: 0
               }} />
               
@@ -537,7 +537,7 @@ const About: React.FC = () => {
                       transition={{ delay: index * 0.3 + 0.5, duration: 1.5 }}
                       style={{
                         height: '100%',
-                        background: linear-gradient(90deg, ${index === 0 ? '#ff6ec7' : '#6ec8ff'}, #a66eff),
+                        background: `linear-gradient(90deg, ${index === 0 ? '#ff6ec7' : '#6ec8ff'}, #a66eff)`,
                         borderRadius: '4px'
                       }}
                     />

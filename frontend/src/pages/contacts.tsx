@@ -32,7 +32,7 @@ const Contacts: React.FC = () => {
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, email, subject, message } = emailForm;
-    const mailtoUrl = `mailto:apeksharathgalle@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(Name: ${name}\nEmail: ${email}\n\nMessage:\n${message})}`;
+    const mailtoUrl = `mailto:apeksharathgalle@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
     window.location.href = mailtoUrl;
     setEmailSent(true);
     setEmailForm({ name: '', email: '', subject: '', message: '' });
@@ -62,7 +62,7 @@ const Contacts: React.FC = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        background: radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(162,89,255,0.1) 0%, transparent 50%),
+        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(162,89,255,0.1) 0%, transparent 50%)`,
         pointerEvents: 'none',
         transition: 'background 0.3s ease'
       }} />
@@ -221,7 +221,7 @@ const Contacts: React.FC = () => {
               onClick={() => {
                 const subject = encodeURIComponent('Project Inquiry - Let\'s Work Together!');
                 const body = encodeURIComponent('Hi Apeksha,\n\nI came across your portfolio and I\'m interested in discussing a potential project.\n\nBest regards,');
-                const mailtoUrl = mailto:apeksharathgalle@gmail.com?subject=${subject}&body=${body};
+                const mailtoUrl = `mailto:apeksharathgalle@gmail.com?subject=${subject}&body=${body}`;
                 window.location.href = mailtoUrl;
               }}
               style={{
@@ -402,7 +402,7 @@ const Contacts: React.FC = () => {
             </div>
           )}
 
-          <div onSubmit={handleEmailSubmit} style={{ display: 'grid', gap: '1.5rem' }}>
+          <form onSubmit={handleEmailSubmit} style={{ display: 'grid', gap: '1.5rem' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
               <div>
                 <label style={{
@@ -545,7 +545,6 @@ const Contacts: React.FC = () => {
 
             <button
               type="submit"
-              onClick={handleEmailSubmit}
               style={{
                 padding: '1.2rem 2rem',
                 background: 'linear-gradient(135deg, #a259ff, #ff00ff)',
@@ -575,7 +574,7 @@ const Contacts: React.FC = () => {
               <Send />
               Send Message
             </button>
-          </div>
+          </form>
         </div>
 
         {/* Phone Section */}
@@ -672,7 +671,7 @@ const Contacts: React.FC = () => {
             style={{
               padding: '1rem 2rem',
               background: copied ? 'rgba(0,255,0,0.2)' : 'rgba(255,193,7,0.2)',
-              border: 1px solid ${copied ? 'rgba(0,255,0,0.3)' : 'rgba(255,193,7,0.3)'},
+              border: `1px solid ${copied ? 'rgba(0,255,0,0.3)' : 'rgba(255,193,7,0.3)'}`,
               borderRadius: '50px',
               color: copied ? '#00ff88' : '#ffc107',
               fontWeight: '600',

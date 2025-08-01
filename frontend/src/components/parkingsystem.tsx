@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Globe } from 'lucide-react';
-import automated from '../assets/automated.jpeg';
+import automated from '../assets/automated.jpeg.jpg';
 
 interface ProjectImage {
   url: string;
