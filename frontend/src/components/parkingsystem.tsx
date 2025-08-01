@@ -3,11 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Globe } from 'lucide-react';
 import automated from '../assets/automated.jpeg.jpg';
 
-interface ProjectImage {
-  url: string;
-  caption: string;
-}
-
 const ParkingSystem: React.FC = () => {
   const navigate = useNavigate();
 

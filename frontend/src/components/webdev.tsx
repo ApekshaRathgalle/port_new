@@ -26,7 +26,6 @@ const WebDev: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const projectsPerPage = 3;
   
   const navigate = useNavigate();
@@ -50,14 +49,14 @@ const WebDev: React.FC = () => {
 
   // Auto slideshow effect - only for project 1
   useEffect(() => {
-    if (!isAutoPlaying || hoveredCard === 1) return;
+    if (hoveredCard === 1) return;
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % project1Images.length);
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, hoveredCard, project1Images.length]);
+  }, [hoveredCard, project1Images.length]);
 
   const projects: Project[] = [
     {
@@ -376,15 +375,15 @@ const WebDev: React.FC = () => {
                         width: '8px',
                         height: '8px',
                         borderRadius: '50%',
-                        backgroundColor: isAutoPlaying && hoveredCard !== project.id ? '#00ff88' : '#ff6b6b',
-                        animation: isAutoPlaying && hoveredCard !== project.id ? 'pulse 1.5s ease-in-out infinite' : 'none'
+                        backgroundColor: hoveredCard !== project.id ? '#00ff88' : '#ff6b6b',
+                        animation: hoveredCard !== project.id ? 'pulse 1.5s ease-in-out infinite' : 'none'
                       }} />
                       <span style={{
                         fontSize: '11px',
                         color: 'white',
                         fontWeight: '600'
                       }}>
-                        {isAutoPlaying && hoveredCard !== project.id ? 'AUTO' : 'PAUSED'}
+                        {hoveredCard !== project.id ? 'AUTO' : 'PAUSED'}
                       </span>
                     </div>
                   </>

@@ -2,11 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Globe } from 'lucide-react';
 
-interface ProjectImage {
-  url: string;
-  caption: string;
-}
-
 const SocialMedia: React.FC = () => {
   const navigate = useNavigate();
 

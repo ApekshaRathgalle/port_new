@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, Eye, Users, Clock, Target, Lightbulb, Palette, Monitor, Smartphone, Heart, Shield, MessageCircle, HeadphonesIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 

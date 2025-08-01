@@ -23,12 +23,6 @@ const useTypewriter = (text: string, speed: number = 50) => {
 };
 
 // Icons remain the same as before
-const GraduationCapIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6zM5 13.18l7 3.82 7-3.82V15l-7 3.82L5 15v-1.82z"/>
-  </svg>
-);
-
 const LaptopCodeIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
     <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>

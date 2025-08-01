@@ -12,11 +12,6 @@ import salo8 from '../assets/salo8.jpg';
 import salo9 from '../assets/salo9.jpg';
 import salo34 from '../assets/salo34.jpg';
 
-interface ProjectImage {
-  url: string;
-  caption: string;
-}
-
 const Salogame: React.FC = () => {
   const navigate = useNavigate();
 
