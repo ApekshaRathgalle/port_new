@@ -120,42 +120,6 @@ const UIUX: React.FC = () => {
         }}>
           Crafting beautiful, intuitive user experiences through thoughtful design and user-centered research
         </p>
-
-        {/* Design Process Stats */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '3rem',
-          marginTop: '3rem',
-          flexWrap: 'wrap'
-        }}>
-          {[
-            { number: '15+', label: 'Design Projects' },
-            { number: '98%', label: 'User Satisfaction' },
-            { number: '50+', label: 'UI Components' }
-          ].map((stat, index) => (
-            <div key={index} style={{
-              textAlign: 'center'
-            }}>
-              <div style={{
-                fontSize: '2rem',
-                fontWeight: 'bold',
-                background: 'linear-gradient(45deg, #4facfe, #00f2fe)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}>
-                {stat.number}
-              </div>
-              <div style={{
-                fontSize: '0.9rem',
-                color: 'rgba(255, 255, 255, 0.6)',
-                marginTop: '0.5rem'
-              }}>
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       <div
@@ -439,13 +403,13 @@ const UIUX: React.FC = () => {
         </button>
 
         <button
-          onClick={() => navigate('/design-process')}
+          onClick={() => navigate('/mobile')}
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
             padding: '1rem 2rem',
-            background: 'linear-gradient(135deg, #4facfe, #00f2fe)',
+            background: 'linear-gradient(135deg, #ff6b6b, #ff8e8e)',
             border: 'none',
             borderRadius: '50px',
             color: 'white',
@@ -457,7 +421,7 @@ const UIUX: React.FC = () => {
           onMouseEnter={(e) => {
             const target = e.target as HTMLButtonElement;
             target.style.transform = 'translateY(-3px)';
-            target.style.boxShadow = '0 10px 20px rgba(75, 172, 254, 0.5)';
+            target.style.boxShadow = '0 10px 20px rgba(255, 107, 107, 0.5)';
           }}
           onMouseLeave={(e) => {
             const target = e.target as HTMLButtonElement;
@@ -465,7 +429,7 @@ const UIUX: React.FC = () => {
             target.style.boxShadow = 'none';
           }}
         >
-          Design Process
+          View Other Projects
           <ChevronRight size={20} />
         </button>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, Github, Star, Download, Play } from 'lucide-react';
+import { ChevronLeft, Github, Play } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import trendVideo from '../assets/finnce/trend.mp4';
 
@@ -90,58 +90,6 @@ const FitnessApp: React.FC = () => {
           }}>
             Exclusive mobile application development for luxury brands with premium design, seamless user experience, and high-end functionality
           </p>
-
-          {/* App Stats */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '3rem',
-            flexWrap: 'wrap',
-            marginTop: '2rem'
-          }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.3rem',
-                marginBottom: '0.5rem'
-              }}>
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} size={20} fill="#ffd700" color="#ffd700" />
-                ))}
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)' }}>
-                5.0 Rating
-              </div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                color: '#ff6b6b',
-                marginBottom: '0.3rem'
-              }}>
-                50+
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)' }}>
-                Luxury Clients
-              </div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                color: '#ffa726',
-                marginBottom: '0.3rem'
-              }}>
-              Premium
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)' }}>
-                Quality
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Main Content */}
@@ -359,28 +307,6 @@ const FitnessApp: React.FC = () => {
           >
             <Github size={20} />
             View Source Code
-          </a>
-          
-          <a
-            href="#"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.8rem',
-              padding: '1rem 2rem',
-              background: 'linear-gradient(135deg, #ff6b6b, #ffa726)',
-              border: 'none',
-              borderRadius: '30px',
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 8px 25px rgba(255, 107, 107, 0.3)'
-            }}
-          >
-            <Download size={20} />
-            Download App
           </a>
         </div>
       </div>

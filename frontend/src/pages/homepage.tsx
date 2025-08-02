@@ -13,7 +13,7 @@ const Homepage: React.FC = () => {
         top: window.innerHeight,
         behavior: 'smooth'
       });
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);

@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Linkedin, Phone, Eye, EyeOff, Send, CheckCircle } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 
 const Contacts: React.FC = () => {
-  const [showPhone, setShowPhone] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [emailForm, setEmailForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [emailSent, setEmailSent] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const phoneNumber = '+94 702660480';
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -22,29 +11,6 @@ const Contacts: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(phoneNumber);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { name, email, subject, message } = emailForm;
-    const mailtoUrl = `mailto:apeksharathgalle@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    window.location.href = mailtoUrl;
-    setEmailSent(true);
-    setEmailForm({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setEmailSent(false), 3000);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setEmailForm(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
 
   return (
     <div style={{
@@ -219,13 +185,8 @@ const Contacts: React.FC = () => {
               }}>apeksharathgalle@gmail.com</p>
             </div>
             
-            <button
-              onClick={() => {
-                const subject = encodeURIComponent('Project Inquiry - Let\'s Work Together!');
-                const body = encodeURIComponent('Hi Apeksha,\n\nI came across your portfolio and I\'m interested in discussing a potential project.\n\nBest regards,');
-                const mailtoUrl = `mailto:apeksharathgalle@gmail.com?subject=${subject}&body=${body}`;
-                window.location.href = mailtoUrl;
-              }}
+            <a
+              href="mailto:apeksharathgalle@gmail.com?subject=Hello%20from%20Portfolio&body=Hi%20Apeksha,%0A%0AI%20visited%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch.%0A%0ABest%20regards,"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -234,7 +195,7 @@ const Contacts: React.FC = () => {
                 background: 'linear-gradient(135deg, #a259ff, #ff00ff)',
                 borderRadius: '50px',
                 color: 'white',
-                border: 'none',
+                textDecoration: 'none',
                 fontWeight: '600',
                 fontSize: '1.1rem',
                 cursor: 'pointer',
@@ -252,9 +213,9 @@ const Contacts: React.FC = () => {
                 e.currentTarget.style.boxShadow = '0 10px 30px rgba(162,89,255,0.4)';
               }}
             >
-              <Send />
-              Quick Email
-            </button>
+              <Mail />
+              Send Email
+            </a>
           </div>
 
           {/* LinkedIn Card */}
@@ -355,359 +316,6 @@ const Contacts: React.FC = () => {
               Visit Profile
             </a>
           </div>
-        </div>
-
-        {/* Enhanced Email Form */}
-        <div style={{
-          maxWidth: '800px',
-          margin: '0 auto 4rem',
-          background: 'rgba(255,255,255,0.05)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '24px',
-          padding: '3rem',
-          border: '1px solid rgba(162,89,255,0.2)',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
-        }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            marginBottom: '1rem',
-            background: 'linear-gradient(135deg, #a259ff, #ff00ff)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontWeight: '700',
-            textAlign: 'center'
-          }}>Send a Detailed Message</h2>
-          
-          <p style={{
-            textAlign: 'center',
-            color: '#d9c7ff',
-            fontSize: '1.1rem',
-            marginBottom: '2.5rem'
-          }}>
-            Fill out the form below and I'll get back to you as soon as possible.
-          </p>
-
-          {emailSent && (
-            <div style={{
-              background: 'rgba(0,255,0,0.1)',
-              border: '1px solid rgba(0,255,0,0.3)',
-              borderRadius: '12px',
-              padding: '1rem',
-              marginBottom: '2rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              color: '#00ff88'
-            }}>
-              <CheckCircle />
-              Email client opened! Please send your message.
-            </div>
-          )}
-
-          <form onSubmit={handleEmailSubmit} style={{ display: 'grid', gap: '1.5rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-              <div>
-                <label style={{
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  color: '#a259ff',
-                  fontWeight: '600'
-                }}>Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={emailForm.name}
-                  onChange={handleInputChange}
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    borderRadius: '12px',
-                    border: '1px solid rgba(162,89,255,0.3)',
-                    background: 'rgba(255,255,255,0.05)',
-                    color: 'white',
-                    fontSize: '1rem',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = '#a259ff';
-                    e.target.style.boxShadow = '0 0 20px rgba(162,89,255,0.3)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = 'rgba(162,89,255,0.3)';
-                    e.target.style.boxShadow = 'none';
-                  }}
-                />
-              </div>
-              
-              <div>
-                <label style={{
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  color: '#a259ff',
-                  fontWeight: '600'
-                }}>Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={emailForm.email}
-                  onChange={handleInputChange}
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    borderRadius: '12px',
-                    border: '1px solid rgba(162,89,255,0.3)',
-                    background: 'rgba(255,255,255,0.05)',
-                    color: 'white',
-                    fontSize: '1rem',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = '#a259ff';
-                    e.target.style.boxShadow = '0 0 20px rgba(162,89,255,0.3)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = 'rgba(162,89,255,0.3)';
-                    e.target.style.boxShadow = 'none';
-                  }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: '#a259ff',
-                fontWeight: '600'
-              }}>Subject *</label>
-              <input
-                type="text"
-                name="subject"
-                required
-                value={emailForm.subject}
-                onChange={handleInputChange}
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(162,89,255,0.3)',
-                  background: 'rgba(255,255,255,0.05)',
-                  color: 'white',
-                  fontSize: '1rem',
-                  transition: 'all 0.3s ease'
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#a259ff';
-                  e.target.style.boxShadow = '0 0 20px rgba(162,89,255,0.3)';
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = 'rgba(162,89,255,0.3)';
-                  e.target.style.boxShadow = 'none';
-                }}
-              />
-            </div>
-
-            <div>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: '#a259ff',
-                fontWeight: '600'
-              }}>Message *</label>
-              <textarea
-                name="message"
-                required
-                rows={6}
-                value={emailForm.message}
-                onChange={handleInputChange}
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(162,89,255,0.3)',
-                  background: 'rgba(255,255,255,0.05)',
-                  color: 'white',
-                  fontSize: '1rem',
-                  resize: 'vertical',
-                  fontFamily: 'inherit',
-                  transition: 'all 0.3s ease'
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#a259ff';
-                  e.target.style.boxShadow = '0 0 20px rgba(162,89,255,0.3)';
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = 'rgba(162,89,255,0.3)';
-                  e.target.style.boxShadow = 'none';
-                }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              style={{
-                padding: '1.2rem 2rem',
-                background: 'linear-gradient(135deg, #a259ff, #ff00ff)',
-                border: 'none',
-                borderRadius: '50px',
-                color: 'white',
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 10px 30px rgba(162,89,255,0.4)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                margin: '1rem auto 0'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-                e.currentTarget.style.boxShadow = '0 15px 40px rgba(162,89,255,0.6)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.boxShadow = '0 10px 30px rgba(162,89,255,0.4)';
-              }}
-            >
-              <Send />
-              Send Message
-            </button>
-          </form>
-        </div>
-
-        {/* Phone Section */}
-        <div style={{
-          maxWidth: '600px',
-          margin: '0 auto',
-          background: 'rgba(255,255,255,0.05)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '24px',
-          padding: '2.5rem',
-          border: '1px solid rgba(162,89,255,0.2)',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-          textAlign: 'center'
-        }}>
-          <div style={{
-            width: '80px',
-            height: '80px',
-            borderRadius: '20px',
-            background: 'linear-gradient(135deg, rgba(255,193,7,0.3), rgba(255,152,0,0.2))',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 2rem',
-            boxShadow: '0 10px 30px rgba(255,193,7,0.3)'
-          }}>
-            <Phone style={{ fontSize: '2rem', color: '#ffc107' }} />
-          </div>
-
-          <h3 style={{
-            fontSize: '2rem',
-            marginBottom: '1rem',
-            background: 'linear-gradient(135deg, #ffc107, #ff9800)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontWeight: '700'
-          }}>Phone Number</h3>
-          
-          <p style={{
-            marginBottom: '2rem',
-            color: '#d9c7ff',
-            fontSize: '1.1rem'
-          }}>For urgent matters, feel free to give me a call</p>
-          
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '1rem',
-            marginBottom: '2rem',
-            flexWrap: 'wrap'
-          }}>
-            <div style={{
-              background: 'rgba(255,193,7,0.1)',
-              borderRadius: '12px',
-              padding: '1rem 1.5rem',
-              border: '1px solid rgba(255,193,7,0.3)',
-              fontSize: '1.2rem',
-              letterSpacing: '1px',
-              filter: showPhone ? 'none' : 'blur(5px)',
-              userSelect: showPhone ? 'text' : 'none',
-              transition: 'filter 0.3s ease'
-            }}>
-              {phoneNumber}
-            </div>
-            
-            <button 
-              onClick={() => setShowPhone(!showPhone)}
-              style={{
-                background: 'rgba(255,193,7,0.2)',
-                border: '1px solid rgba(255,193,7,0.3)',
-                borderRadius: '12px',
-                padding: '1rem',
-                color: '#ffc107',
-                cursor: 'pointer',
-                fontSize: '1.2rem',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,193,7,0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,193,7,0.2)';
-              }}
-            >
-              {showPhone ? <EyeOff /> : <Eye />}
-            </button>
-          </div>
-
-          <button 
-            onClick={copyToClipboard}
-            style={{
-              padding: '1rem 2rem',
-              background: copied ? 'rgba(0,255,0,0.2)' : 'rgba(255,193,7,0.2)',
-              border: `1px solid ${copied ? 'rgba(0,255,0,0.3)' : 'rgba(255,193,7,0.3)'}`,
-              borderRadius: '50px',
-              color: copied ? '#00ff88' : '#ffc107',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              fontSize: '1.1rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              margin: '0 auto'
-            }}
-            onMouseEnter={(e) => {
-              if (!copied) {
-                e.currentTarget.style.background = 'rgba(255,193,7,0.3)';
-                e.currentTarget.style.transform = 'scale(1.05)';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!copied) {
-                e.currentTarget.style.background = 'rgba(255,193,7,0.2)';
-                e.currentTarget.style.transform = 'scale(1)';
-              }
-            }}
-          >
-            {copied ? (
-              <>
-                <CheckCircle style={{ marginRight: '0.5rem' }} />
-                Copied!
-              </>
-            ) : (
-              'Copy Number'
-            )}
-          </button>
         </div>
       </main>
 

@@ -124,12 +124,15 @@ const About: React.FC = () => {
             style={{
               fontSize: '4rem',
               fontWeight: '800',
-              color: '#1a0033',
+              background: 'linear-gradient(135deg, #ff6ec7, #6ec8ff, #a66eff)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
               marginBottom: '1rem',
               lineHeight: '1.1'
             }}
           >
-            Your Name
+            APEKSHA
           </motion.h1>
           
           <motion.h2
@@ -160,7 +163,7 @@ const About: React.FC = () => {
             }}
           >
             {useTypewriter(
-              "I specialize in creating stunning digital experiences through innovative web development and compelling video content. Let's bring your ideas to life with cutting-edge technology and creative vision.",
+              "Interested in crafting intuitive and engaging digital experiences through thoughtful UI/UX design. I blend user-centered design principles with creativity and modern tools to turn ideas into seamless, beautiful, and accessible interfaces. Let’s bring your vision to life with clean design, smart interactions, and meaningful user journeys.",
               30
             )}
             <motion.span
@@ -321,11 +324,14 @@ const About: React.FC = () => {
           </h2>
           <h3 style={{
             fontSize: '2.5rem',
-            color: '#1a0033',
+            background: 'linear-gradient(135deg, #ff6ec7, #a66eff)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             marginBottom: '1rem',
             fontWeight: '800'
           }}>
-            I Provide Wide Range of Digital Services
+            I PROVIDE WIDE RANGE of Digital Services
           </h3>
         </motion.div>
 
@@ -435,11 +441,14 @@ const About: React.FC = () => {
           </h2>
           <h3 style={{
             fontSize: '2.5rem',
-            color: '#1a0033',
+            background: 'linear-gradient(135deg, #6ec8ff, #ff6ec7)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             marginBottom: '1rem',
             fontWeight: '800'
           }}>
-            My Academic Background
+            MY ACADEMIC BACKGROUND
           </h3>
         </motion.div>
 

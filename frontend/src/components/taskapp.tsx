@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Github, Star, Download, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Github } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import finance1 from '../assets/finnce/IMG-20250801-WA0025.jpg';
 import finance2 from '../assets/finnce/IMG-20250801-WA0026.jpg';
@@ -14,7 +14,8 @@ import finance10 from '../assets/finnce/IMG-20250801-WA0034.jpg';
 import finance11 from '../assets/finnce/IMG-20250801-WA0035.jpg';
 import finance12 from '../assets/finnce/IMG-20250801-WA0036.jpg';
 import finance13 from '../assets/finnce/IMG-20250801-WA0037.jpg';
-import image3 from '../assets/finnce/image.png'
+import image3 from '../assets/finnce/image.png';
+import financeVideo from '../assets/finnce/finance.mp4';
 
 const TaskApp: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -130,58 +131,6 @@ const TaskApp: React.FC = () => {
           }}>
             A comprehensive personal finance tracking mobile application with expense management, budget planning, and financial analytics
           </p>
-
-          {/* App Stats */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '3rem',
-            flexWrap: 'wrap',
-            marginTop: '2rem'
-          }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.3rem',
-                marginBottom: '0.5rem'
-              }}>
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} size={20} fill="#ffd700" color="#ffd700" />
-                ))}
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)' }}>
-                4.8 Rating
-              </div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                color: '#2ed573',
-                marginBottom: '0.3rem'
-              }}>
-                10K+
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)' }}>
-                Downloads
-              </div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                color: '#1e90ff',
-                marginBottom: '0.3rem'
-              }}>
-                Cross-Platform
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)' }}>
-                iOS & Android
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Main Content */}
@@ -414,30 +363,6 @@ const TaskApp: React.FC = () => {
           marginBottom: '3rem'
         }}>
           <a
-            href="https://www.loom.com/share/your-video-id"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.8rem',
-              padding: '1rem 2rem',
-              background: 'linear-gradient(135deg, #ff6b6b, #ff8e8e)',
-              border: 'none',
-              borderRadius: '30px',
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 8px 25px rgba(255, 107, 107, 0.3)'
-            }}
-          >
-            <Play size={20} />
-            Watch Demo Video
-          </a>
-          
-          <a
             href="https://github.com/yourusername/finance-tracker-app"
             target="_blank"
             rel="noopener noreferrer"
@@ -459,28 +384,46 @@ const TaskApp: React.FC = () => {
             <Github size={20} />
             View Source Code
           </a>
+        </div>
+
+        {/* Demo Video Section */}
+        <div style={{
+          marginBottom: '3rem',
+          textAlign: 'center'
+        }}>
+          <h2 style={{
+            fontSize: '2rem',
+            marginBottom: '2rem',
+            color: '#2ed573'
+          }}>
+            App Demo Video
+          </h2>
           
-          <a
-            href="#"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.8rem',
-              padding: '1rem 2rem',
-              background: 'linear-gradient(135deg, #2ed573, #1e90ff)',
-              border: 'none',
-              borderRadius: '30px',
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 8px 25px rgba(46, 213, 115, 0.3)'
-            }}
-          >
-            <Download size={20} />
-            Download App
-          </a>
+          {/* Mobile Phone Frame for Video */}
+          <div style={{
+            width: '300px',
+            height: '600px',
+            margin: '0 auto',
+            position: 'relative',
+            borderRadius: '40px',
+            border: '12px solid #222',
+            overflow: 'hidden',
+            boxShadow: '0 20px 60px rgba(46, 213, 115, 0.3)',
+            background: '#000'
+          }}>
+            <video 
+              src={financeVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
