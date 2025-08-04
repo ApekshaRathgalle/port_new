@@ -100,6 +100,7 @@ const Homepage: React.FC = () => {
             alignItems: 'center',
             gap: '1.5rem',
             marginTop: '3rem',
+            flexWrap: 'wrap',
           }}>
             <button
   onClick={() => navigate('/projects')}
@@ -129,6 +130,42 @@ const Homepage: React.FC = () => {
   }}
 >
  View projects
+</button>
+
+            <button
+  onClick={() => window.open('https://youtube.com/@liasmichelle3523?si=4Z0HOYTIm6vyYK9G', '_blank')}
+  style={{
+    padding: '14px 32px',
+    background: 'transparent',
+    border: '2px solid #FF0000',
+    borderRadius: '50px',
+    color: '#F1F1F1',
+    fontWeight: 700,
+    fontSize: '1.1rem',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 0 10px rgba(255, 0, 0, 0.3)',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  }}
+  onMouseOver={(e) => {
+    e.currentTarget.style.borderColor = '#FF0000';
+    e.currentTarget.style.color = '#FF0000';
+    e.currentTarget.style.boxShadow = '0 0 25px rgba(255, 0, 0, 0.5)';
+    e.currentTarget.style.background = 'rgba(255, 0, 0, 0.1)';
+  }}
+  onMouseOut={(e) => {
+    e.currentTarget.style.borderColor = '#FF0000';
+    e.currentTarget.style.color = '#F1F1F1';
+    e.currentTarget.style.boxShadow = '0 0 10px rgba(255, 0, 0, 0.3)';
+    e.currentTarget.style.background = 'transparent';
+  }}
+>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+  </svg>
+  YouTube Channel
 </button>
 
             <button
