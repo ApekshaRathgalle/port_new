@@ -174,44 +174,6 @@ const Projects = () => {
               Discover my portfolio of innovative projects spanning web development, 
               mobile applications, and stunning UI/UX designs
             </p>
-
-            {/* Stats Section */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '3rem',
-              marginTop: '3rem',
-              animation: 'fadeInUp 1s ease-out 0.4s both'
-            }}>
-              {[
-                { number: '35+', label: 'Projects Completed' },
-                { number: '3', label: 'Specializations' },
-                { number: '100%', label: 'Client Satisfaction' }
-              ].map((stat, index) => (
-                <div key={index} style={{
-                  textAlign: 'center',
-                  animation: 'pulse 2s ease-in-out infinite',
-                  animationDelay: `${index * 0.2}s`
-                }}>
-                  <div style={{
-                    fontSize: '2rem',
-                    fontWeight: 'bold',
-                    background: 'linear-gradient(45deg, #a259ff, #ff00ff)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
-                  }}>
-                    {stat.number}
-                  </div>
-                  <div style={{
-                    fontSize: '0.9rem',
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    marginTop: '0.5rem'
-                  }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Project Cards */}
