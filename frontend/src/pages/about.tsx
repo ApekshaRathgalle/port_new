@@ -163,7 +163,7 @@ const About: React.FC = () => {
             }}
           >
             {useTypewriter(
-              "Interested in crafting intuitive and engaging digital experiences through thoughtful UI/UX design. I blend user-centered design principles with creativity and modern tools to turn ideas into seamless, beautiful, and accessible interfaces. Let’s bring your vision to life with clean design, smart interactions, and meaningful user journeys.",
+              "I am an enthusiastic IT undergraduate exploring software engineering, frontend development, and UI/UX design. I enjoy building user-friendly digital experiences while sharpening my skills in web development and design. Alongside my studies, I also explore creative fields such as video editing, game development, and 3D animation — combining technical learning with creativity to grow as a well-rounded developer and designer.",
               30
             )}
             <motion.span

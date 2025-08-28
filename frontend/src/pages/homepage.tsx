@@ -261,7 +261,7 @@ const Homepage: React.FC = () => {
               marginBottom: '1.5rem',
               color: 'rgba(255, 255, 255, 0.9)',
             }}>
-              Hi, I'm Apeksha Rathgalle, an undergraduate student specializing in Interactive Media. I'm passionate about creative technologies, especially video editing and game development. I enjoy blending design and technology to create engaging digital experiences, and I’ve worked on projects involving interactive applications, media content creation, and game design. I'm always excited to learn new tools and bring innovative ideas to life.
+              Hi, I'm Apeksha Rathgalle, an Information Technology undergraduate . I'm passionate about creative technologies, especially Software development , ui/ux design ,video editing and game development. I enjoy blending design and technology to create engaging digital experiences, and I’ve worked on projects involving interactive applications, media content creation, and game design. I'm always excited to learn new tools and bring innovative ideas to life.
 
 </p>
             <p style={{
